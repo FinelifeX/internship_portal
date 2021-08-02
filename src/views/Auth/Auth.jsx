@@ -5,6 +5,7 @@ import { AUTH_ROUTES_BASE, AuthRoutes } from '../../routes/auth';
 import AuthLayout from '../../components/AuthLayout';
 import LoginForm from '../../forms/LoginForm';
 import AuthTabs from '../../components/AuthTabs';
+import SignUpForm from '../../forms/SignUpForm';
 
 const Auth = () => (
   <AuthLayout>
@@ -14,7 +15,7 @@ const Auth = () => (
     <Switch>
       <Redirect from={AUTH_ROUTES_BASE} to={AuthRoutes.Login} exact />
       <Route path={AuthRoutes.Login} component={LoginForm} />
-      <Route path={AuthRoutes.SignUp}>Sign Up</Route>
+      <Route path={AuthRoutes.SignUp} component={SignUpForm} />
       <Route path={AuthRoutes.ResetPass}>Reset Pass</Route>
       <Route path={AuthRoutes.CreatePass}>Create New Pass</Route>
     </Switch>

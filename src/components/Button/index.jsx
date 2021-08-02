@@ -3,7 +3,7 @@ import PT from 'prop-types';
 import classNames from 'classnames';
 import styles from './Button.module.css';
 
-const Button = ({ children, className, variant }) => {
+const Button = ({ children, className, variant, type }) => {
   const resultClassName = classNames({
     [styles.button]: true,
     [styles.primary]: variant === 'primary',
@@ -13,7 +13,8 @@ const Button = ({ children, className, variant }) => {
   });
 
   return (
-    <button className={resultClassName} type="button">
+    // eslint-disable-next-line react/button-has-type
+    <button className={resultClassName} type={type}>
       {children}
     </button>
   );
@@ -22,12 +23,14 @@ const Button = ({ children, className, variant }) => {
 Button.defaultProps = {
   className: '',
   variant: 'primary',
+  type: 'button',
 };
 
 Button.propTypes = {
   children: PT.element.isRequired,
   className: PT.string,
   variant: PT.oneOf(['primary', 'outline', 'link']),
+  type: PT.oneOf(['button', 'submit']),
 };
 
 export default Button;

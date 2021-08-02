@@ -3,12 +3,14 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  cursor: pointer;
 }
 
 .checkbox {
   margin: 0 8px 0 0;
   height: 16px;
   width: 16px;
+  cursor: pointer;
 }
 
 .label {
