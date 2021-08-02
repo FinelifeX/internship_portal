@@ -14,7 +14,7 @@ const makePath = (dir) => path.resolve(__dirname, dir);
 
 /** @type {import("webpack").Configuration} */
 module.exports = {
-  entry: makePath('./index.js'),
+  entry: makePath('./index.jsx'),
   mode: isDevelopment ? 'development' : 'production',
   module: {
     rules: [

@@ -1,0 +1,29 @@
+.nav {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 22px;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem:not(:last-child) {
+  margin-right: 32px;
+}
+
+.navItemLink {
+  display: block;
+  padding-bottom: 12px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.navItemLinkActive {
+  border-bottom: 2px solid #1890ff;
+  color: #1890ff;
+}
