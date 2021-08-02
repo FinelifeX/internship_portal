@@ -3,4 +3,9 @@
   font-size: 16px;
   line-height: 24px;
   width: 100%;
+  border: 1px solid #d9d9d9;
+}
+
+.input::placeholder {
+  color: rgba(0, 0, 0, 0.25);
 }

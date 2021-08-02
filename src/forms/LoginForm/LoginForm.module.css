@@ -1,0 +1,17 @@
+.rememberMe {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.rememberMeCheckbox {
+  width: unset;
+  margin: 0;
+}
+
+.actions {
+  width: 100%;
+}
