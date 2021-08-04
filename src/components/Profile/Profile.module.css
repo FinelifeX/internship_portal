@@ -1,0 +1,53 @@
+.container {
+  position: relative;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+}
+
+.avatar {
+  width: 24px;
+  margin-right: 8px;
+}
+
+.userName {
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+}
+
+.profileMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -10%;
+  background-color: #fff;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.profileMenuItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profileMenuButton {
+  font-size: 14px;
+  line-height: 20px;
+  text-align: start;
+}
+
+.profileMenuButton:hover,
+.profileMenuButton:focus,
+.profileMenuButton:active {
+  background-color: rgba(1, 27, 74, 0.05);
+}
+
+.profileMenuButtonDelete {
+  color: #eb5757;
+}

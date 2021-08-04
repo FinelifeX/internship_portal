@@ -23,4 +23,6 @@
 
 .link {
   color: #1890ff;
+  border-color: transparent;
+  background-color: transparent;
 }
