@@ -1,14 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PT from 'prop-types';
+import { AuthRoutes } from '../../routes/auth';
 import Form from '../../components/Form';
 import FormItem from '../../components/FormItem';
 import InputField from '../../components/InputField';
 import Button from '../../components/Button';
+import BackToLogin from '../../components/BackToLogin';
 import styles from './ResetPassForm.module.css';
-import { AuthRoutes } from '../../routes/auth';
 
-const ResetPassForm = () => (
-  <Form>
+const ResetPassForm = ({ history }) => (
+  <Form
+    onSubmit={() => {
+      // TODO: replace with call to api
+      history.push(AuthRoutes.CreatePass);
+    }}
+  >
     <div className={styles.header}>
       <p className={styles.title}>Reset the password</p>
       <p className={styles.hint}>
@@ -19,12 +25,16 @@ const ResetPassForm = () => (
       <InputField type="email" placeholder="Email" />
     </FormItem>
     <div className={styles.actions}>
-      <Button>Send a link</Button>
+      <Button type="submit">Send a link</Button>
     </div>
-    <p className={styles.footer}>
-      Remembered you password? <Link to={AuthRoutes.Login}>Back to Log In</Link>
-    </p>
+    <BackToLogin />
   </Form>
 );
+
+ResetPassForm.propTypes = {
+  history: PT.shape({
+    push: PT.func,
+  }).isRequired,
+};
 
 export default ResetPassForm;

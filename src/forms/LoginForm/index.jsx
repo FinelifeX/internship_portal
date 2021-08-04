@@ -22,7 +22,7 @@ const LoginForm = () => (
       <Link to="/auth/reset-pass">Forgot your password?</Link>
     </div>
     <div className={styles.actions}>
-      <Button>Sign In</Button>
+      <Button type="submit">Sign In</Button>
     </div>
   </Form>
 );

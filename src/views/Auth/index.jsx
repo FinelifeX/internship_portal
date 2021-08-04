@@ -7,6 +7,7 @@ import LoginForm from '../../forms/LoginForm';
 import AuthTabs from '../../components/AuthTabs';
 import SignUpForm from '../../forms/SignUpForm';
 import ResetPassForm from '../../forms/ResetPassForm';
+import CreateNewPassForm from '../../forms/CreateNewPassForm';
 
 const Auth = () => (
   <AuthLayout>
@@ -18,7 +19,7 @@ const Auth = () => (
       <Route path={AuthRoutes.Login} component={LoginForm} />
       <Route path={AuthRoutes.SignUp} component={SignUpForm} />
       <Route path={AuthRoutes.ResetPass} component={ResetPassForm} />
-      <Route path={AuthRoutes.CreatePass}>Create New Pass</Route>
+      <Route path={AuthRoutes.CreatePass} component={CreateNewPassForm} />
     </Switch>
   </AuthLayout>
 );
