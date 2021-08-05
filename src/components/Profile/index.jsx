@@ -4,21 +4,21 @@ import avatar from '../../assets/images/avatar.png';
 import styles from './Profile.module.css';
 import Button from '../Button';
 
+const userName = 'Jon Snow';
+
 const Profile = () => {
-  const userName = 'Jon Snow';
   const [showPopup, setShowPopup] = useState(false);
+  const handleClick = () => {
+    setShowPopup((shown) => !shown);
+  };
 
   return (
     <div className={styles.container}>
-      <Button
-        className={styles.profile}
-        variant="link"
-        onClick={() => {
-          setShowPopup((shown) => !shown);
-        }}
-      >
-        <img className={styles.avatar} src={avatar} alt="Avatar" />
-        <span className={styles.userName}>{userName}</span>
+      <Button className={styles.profile} variant="link" onClick={handleClick}>
+        <>
+          <img className={styles.avatar} src={avatar} alt="Avatar" />
+          <span className={styles.userName}>{userName}</span>
+        </>
       </Button>
       {showPopup && (
         <div className={styles.profileMenu}>

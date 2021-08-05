@@ -63,7 +63,10 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './public/index.html' }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      inject: false,
+    }),
     isDevelopment && new ReactRefreshWebpackPlugin(),
     new EslintWebpackPlugin({ extensions: ['js', 'jsx'] }),
   ].filter(Boolean),
