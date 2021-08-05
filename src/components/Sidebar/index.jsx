@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
+import { STREAMS_ROUTES_BASE } from '../../routes/streams';
 import toggle from '../../assets/images/side_toggle.svg';
 import rocket from '../../assets/images/rocket.svg';
 import person from '../../assets/images/person.svg';
@@ -23,7 +24,7 @@ const Sidebar = () => {
             <NavLink
               className={styles.sidebarNavListItemLink}
               activeClassName={styles.sidebarNavListItemLinkActive}
-              to="/streams"
+              to={STREAMS_ROUTES_BASE}
             >
               <img
                 className={styles.icon}

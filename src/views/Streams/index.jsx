@@ -1,10 +1,12 @@
 import React from 'react';
-import MainLayout from '../../components/MainLayout';
+import { Redirect } from 'react-router-dom';
+import { StreamsRoutes, STREAMS_ROUTES_BASE } from '../../routes/streams';
 
 const Streams = () => (
-  <MainLayout>
+  <>
+    <Redirect from={STREAMS_ROUTES_BASE} exact to={StreamsRoutes.Current} />
     <div>Streams</div>
-  </MainLayout>
+  </>
 );
 
 export default Streams;
