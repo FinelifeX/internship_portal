@@ -1,13 +1,14 @@
 import React from 'react';
 import PT from 'prop-types';
 import Header from '../Header';
+import Sidebar from '../Sidebar';
 import styles from './MainLayout.module.css';
 
 const MainLayout = ({ children }) => (
   <div className={styles.container}>
     <Header />
     <main className={styles.main}>
-      <div>SideBar</div>
+      <Sidebar />
       <section>{children}</section>
     </main>
   </div>
