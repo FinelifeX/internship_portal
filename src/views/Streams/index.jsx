@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../../components/Button';
 import StreamsTabs from '../../components/StreamsTabs';
+import Table from '../../components/Table';
 import styles from './Streams.module.css';
 
 const Streams = () => (
@@ -12,7 +13,7 @@ const Streams = () => (
     <nav className={styles.nav}>
       <StreamsTabs />
     </nav>
-    <div>Table</div>
+    <Table columns={[]} dataSource={[]} />
   </>
 );
 

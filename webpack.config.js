@@ -68,7 +68,10 @@ module.exports = {
       inject: false,
     }),
     isDevelopment && new ReactRefreshWebpackPlugin(),
-    new EslintWebpackPlugin({ extensions: ['js', 'jsx'] }),
+    new EslintWebpackPlugin({
+      extensions: ['js', 'jsx'],
+      failOnError: false,
+    }),
   ].filter(Boolean),
   /** @type {import("webpack-dev-server").Configuration} */
   devServer: {
