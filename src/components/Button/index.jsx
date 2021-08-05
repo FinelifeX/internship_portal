@@ -28,7 +28,12 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  children: PT.element.isRequired,
+  children: PT.oneOfType([
+    PT.element,
+    PT.arrayOf(PT.element),
+    PT.string,
+    PT.number,
+  ]).isRequired,
   className: PT.string,
   variant: PT.oneOf(['primary', 'outline', 'link']),
   type: PT.oneOf(['button', 'submit']),

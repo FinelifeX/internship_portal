@@ -15,7 +15,7 @@ const AuthLayout = ({ children }) => (
 );
 
 AuthLayout.propTypes = {
-  children: PT.element.isRequired,
+  children: PT.oneOfType([PT.element, PT.arrayOf(PT.element)]).isRequired,
 };
 
 export default AuthLayout;

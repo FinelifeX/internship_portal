@@ -39,7 +39,7 @@ InputField.defaultProps = {
 InputField.propTypes = {
   className: PT.string,
   id: PT.oneOfType([PT.string, PT.number]),
-  type: PT.oneOf(['text, password, email, number']),
+  type: PT.oneOf(['text', 'password', 'email', 'number']),
   value: PT.oneOfType([PT.number, PT.string]),
   placeholder: PT.string,
   onChange: PT.func,

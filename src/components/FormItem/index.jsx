@@ -27,7 +27,7 @@ FormItem.defaultProps = {
 
 FormItem.propTypes = {
   children: PT.element.isRequired,
-  label: PT.element,
+  label: PT.oneOfType([PT.element, PT.string]),
   className: PT.string,
   labelClassName: PT.string,
   labelFirst: PT.bool,
