@@ -24,7 +24,7 @@
 .profileMenu {
   position: absolute;
   top: calc(100% + 8px);
-  left: -10%;
+  left: -6%;
   background-color: #fff;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
