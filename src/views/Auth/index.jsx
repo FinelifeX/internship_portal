@@ -1,7 +1,7 @@
 import React from 'react';
 import PT from 'prop-types';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import { AuthRoutes, AUTH_ROUTES_BASE } from '../../routes/auth';
+import { Route, Switch } from 'react-router-dom';
+import { AuthRoutes } from '../../routes/auth';
 import AuthLayout from '../../components/AuthLayout';
 import LoginForm from '../../forms/LoginForm';
 import AuthTabs from '../../components/AuthTabs';
@@ -10,20 +10,17 @@ import ResetPassForm from '../../forms/ResetPassForm';
 import CreateNewPassForm from '../../forms/CreateNewPassForm';
 
 const Auth = () => (
-  <>
-    <Redirect from={AUTH_ROUTES_BASE} exact to={AuthRoutes.Login} />
-    <AuthLayout>
-      <Route path={[AuthRoutes.Login, AuthRoutes.SignUp]}>
-        <AuthTabs />
-      </Route>
-      <Switch>
-        <Route path={AuthRoutes.Login} component={LoginForm} />
-        <Route path={AuthRoutes.SignUp} component={SignUpForm} />
-        <Route path={AuthRoutes.ResetPass} component={ResetPassForm} />
-        <Route path={AuthRoutes.CreatePass} component={CreateNewPassForm} />
-      </Switch>
-    </AuthLayout>
-  </>
+  <AuthLayout>
+    <Route path={[AuthRoutes.Login, AuthRoutes.SignUp]}>
+      <AuthTabs />
+    </Route>
+    <Switch>
+      <Route path={AuthRoutes.Login} component={LoginForm} />
+      <Route path={AuthRoutes.SignUp} component={SignUpForm} />
+      <Route path={AuthRoutes.ResetPass} component={ResetPassForm} />
+      <Route path={AuthRoutes.CreatePass} component={CreateNewPassForm} />
+    </Switch>
+  </AuthLayout>
 );
 
 Auth.propTypes = {
