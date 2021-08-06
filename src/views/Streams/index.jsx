@@ -1,7 +1,9 @@
 import React from 'react';
+import mockStreams from '../../mock/streams';
 import Button from '../../components/Button';
 import StreamsTabs from '../../components/StreamsTabs';
-import Table from '../../components/Table';
+import Table from '../../components/Table/Table';
+import { streamsTableCols } from './constants';
 import styles from './Streams.module.css';
 
 const Streams = () => (
@@ -13,7 +15,9 @@ const Streams = () => (
     <nav className={styles.nav}>
       <StreamsTabs />
     </nav>
-    <Table columns={[]} dataSource={[]} />
+    <div className={styles.content}>
+      <Table columns={streamsTableCols} dataSource={mockStreams} />
+    </div>
   </>
 );
 

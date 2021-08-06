@@ -2,9 +2,10 @@ import React from 'react';
 import PT from 'prop-types';
 import { columnItem } from './propTypes';
 import TableHeadCell from './TableHeadCell';
+import styles from './TableHead.module.css';
 
 const TableHead = ({ columns }) => (
-  <thead>
+  <thead className={styles.tableHead}>
     <tr>
       {columns.map(({ key, ...rest }) => (
         <TableHeadCell columnItem={rest} />

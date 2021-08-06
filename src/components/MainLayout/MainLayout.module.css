@@ -6,10 +6,14 @@
 
 .main {
   flex: 1;
+  min-height: 1px;
   display: flex;
   flex-direction: row;
 }
 
 .content {
   flex: 1;
+  min-width: 1px;
+  display: flex;
+  flex-direction: column;
 }

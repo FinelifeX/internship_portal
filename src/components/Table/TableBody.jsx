@@ -2,13 +2,18 @@ import React from 'react';
 import PT from 'prop-types';
 import { columnItem } from './propTypes';
 import TableBodyCell from './TableBodyCell';
+import styles from './TableBody.module.css';
 
 const TableBody = ({ columns, dataSource }) => (
-  <tbody>
+  <tbody className={styles.tableBody}>
     {dataSource.map((dataItem) => (
-      <tr>
-        {columns.map(({ key, dataIndex }) => (
-          <TableBodyCell key={key} />
+      <tr className={styles.tableBodyRow}>
+        {columns.map(({ key, dataIndex, render }) => (
+          <TableBodyCell key={key}>
+            {render
+              ? render(dataItem[dataIndex], dataItem)
+              : dataItem[dataIndex]}
+          </TableBodyCell>
         ))}
       </tr>
     ))}

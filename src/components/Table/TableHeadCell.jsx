@@ -4,13 +4,14 @@ import caretDown from '../../assets/images/caret-down.svg';
 import filterIcon from '../../assets/images/filter.svg';
 import Button from '../Button';
 import { columnItem as columnItemType } from './propTypes';
+import styles from './TableHeadCell.module.css';
 
 const TableHeadCell = ({ columnItem }) => {
   const { title, sorter, filter } = columnItem;
 
   return (
-    <th>
-      <div>
+    <th className={styles.cell}>
+      <div className={styles.cellInner}>
         <span>{title}</span>
         {sorter && (
           <Button

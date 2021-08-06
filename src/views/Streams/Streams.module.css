@@ -21,3 +21,10 @@
   background-color: #fff;
   padding: 16px 24px;
 }
+
+.content {
+  flex: 1;
+  min-height: 1px;
+  overflow: auto;
+  margin: 16px 24px;
+}

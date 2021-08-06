@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import PT from 'prop-types';
 import { columnItem } from './propTypes';
 import TableHead from './TableHead';
-import styles from './Table.module.css';
 import TableBody from './TableBody';
+import styles from './Table.module.css';
 
 const Table = ({ columns, dataSource, toolbelt, filterFn }) => {
   const displayedData = useMemo(
@@ -12,8 +12,8 @@ const Table = ({ columns, dataSource, toolbelt, filterFn }) => {
   );
 
   return (
-    <div>
-      <table>
+    <div className={styles.tableContainer}>
+      <table className={styles.table}>
         <TableHead columns={columns} />
         <TableBody columns={columns} dataSource={displayedData} />
         <tfoot>
