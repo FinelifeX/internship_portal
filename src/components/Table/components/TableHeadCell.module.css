@@ -1,6 +1,9 @@
 .cell {
   padding: 16px 0;
   text-align: start;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
 }
 
 .cellInner {

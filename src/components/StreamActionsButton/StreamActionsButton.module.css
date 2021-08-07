@@ -1,0 +1,33 @@
+.container {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.delete {
+  color: #eb5757;
+}
+
+.delete:hover {
+  color: #eb5757;
+}
+
+.menu {
+  transform: translate(-100%, -20%);
+}
+
+.trigger {
+  padding: 0;
+  font-size: 18px;
+  line-height: 26px;
+  color: rgba(0, 0, 0, 0.85);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.trigger:active,
+.trigger:focus,
+.trigger:hover {
+  color: #fa8c16;
+}

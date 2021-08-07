@@ -2,6 +2,7 @@
   background-color: #fff;
 }
 
-.tableBodyRow:not(:last-child) {
+.tableBodyRow:not(:last-child),
+.tableBodyRow:first-child {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }

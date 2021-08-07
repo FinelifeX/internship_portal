@@ -1,28 +1,34 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import classNames from 'classnames';
+import React, { useCallback, useState } from 'react';
 import avatar from '../../assets/images/avatar.png';
-import styles from './Profile.module.css';
+import ContextMenu from '../ContextMenu';
 import Button from '../Button';
+import styles from './Profile.module.css';
 
 const userName = 'Jon Snow';
+const menuOptions = [
+  {
+    key: 'profile',
+    title: 'View Profile',
+    action: () => {
+      alert('Under development!');
+    },
+  },
+  {
+    key: 'logout',
+    title: 'Logout',
+    action: () => {
+      alert('Under development!');
+    },
+    className: styles.logout,
+  },
+];
 
 const Profile = () => {
   const [showPopup, setShowPopup] = useState(false);
 
-  const onTriggerClick = useCallback((e) => {
-    e.stopPropagation();
+  const onTriggerClick = useCallback(() => {
     setShowPopup((shown) => !shown);
   }, []);
-
-  useEffect(() => {
-    if (showPopup) {
-      document.addEventListener('click', onTriggerClick);
-    }
-
-    return () => {
-      document.removeEventListener('click', onTriggerClick);
-    };
-  }, [onTriggerClick, showPopup]);
 
   return (
     <div className={styles.container}>
@@ -36,28 +42,11 @@ const Profile = () => {
           <span className={styles.userName}>{userName}</span>
         </>
       </Button>
-      {showPopup && (
-        <div className={styles.profileMenu}>
-          <ul className={styles.profileMenuItems}>
-            <li className={styles.profileMenuItem}>
-              <Button className={styles.profileMenuButton} variant="link">
-                View Profile
-              </Button>
-            </li>
-            <li className={styles.profileMenuItem}>
-              <Button
-                className={classNames(
-                  styles.profileMenuButton,
-                  styles.profileMenuButtonDelete,
-                )}
-                variant="link"
-              >
-                Logout
-              </Button>
-            </li>
-          </ul>
-        </div>
-      )}
+      <ContextMenu
+        visible={showPopup}
+        options={menuOptions}
+        onClose={onTriggerClick}
+      />
     </div>
   );
 };

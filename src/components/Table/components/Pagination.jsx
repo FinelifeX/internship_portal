@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import PT from 'prop-types';
 import classNames from 'classnames';
 import { displayOptions } from '../contants';
@@ -10,22 +10,14 @@ const Pagination = ({
   page,
   onPageChange,
   onDisplayChange,
+  displayedIndices,
 }) => {
   const totalPages = Math.ceil(total / displayed);
-  const [firstDisplayed, lastDisplayed] = useMemo(() => {
-    let firstIndex = displayed * page - displayed + 1;
-    if (firstIndex < 0) firstIndex = 1;
-
-    let lastIndex = displayed * page;
-    if (lastIndex > total) lastIndex = total;
-
-    return [firstIndex, lastIndex];
-  }, [displayed, page, total]);
 
   return (
     <div className={styles.container}>
       <span className={styles.count}>
-        {firstDisplayed}-{lastDisplayed} of {total} items
+        {displayedIndices.first + 1}-{displayedIndices.last} of {total} items
       </span>
       <ul className={styles.buttonsList}>
         <li className={styles.buttonsListItem}>
@@ -70,7 +62,12 @@ const Pagination = ({
           </button>
         </li>
       </ul>
-      <select className={styles.select} onChange={onDisplayChange}>
+      <select
+        className={styles.select}
+        onChange={(e) => {
+          onDisplayChange(Number(e.target.value));
+        }}
+      >
         {displayOptions.map((option) => (
           <option key={option} value={option}>
             {option}/page
@@ -92,6 +89,7 @@ Pagination.propTypes = {
   page: PT.number.isRequired,
   onPageChange: PT.func,
   onDisplayChange: PT.func,
+  displayedIndices: PT.shape({ first: PT.number, last: PT.number }),
 };
 
 export default Pagination;

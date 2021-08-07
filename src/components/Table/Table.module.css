@@ -9,6 +9,7 @@
 .tableContainer {
   overflow: auto;
   flex: 1;
+  background-color: #fff;
 }
 
 .table {

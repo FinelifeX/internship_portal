@@ -5,6 +5,7 @@ import { monthNumber2String } from '../../constants/monthNumber2String';
 import { millis2Days } from '../../utils/dateConverters';
 import { STREAMS_ROUTES_BASE } from '../../routes/streams';
 import TeamMember from '../../components/TeamMember';
+import StreamActionsButton from '../../components/StreamActionsButton';
 
 export const streamsTableCols = [
   {
@@ -58,6 +59,6 @@ export const streamsTableCols = [
   {
     key: 'actions',
     title: '',
-    render: () => '...',
+    render: () => <StreamActionsButton />,
   },
 ];
