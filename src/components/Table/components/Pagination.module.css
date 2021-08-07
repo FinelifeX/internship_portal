@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 16px;
+}
+
+.count {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.buttonsList {
+  list-style: none;
+  padding: 0;
+  margin: 0 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.buttonsListItem:not(:last-child) {
+  margin-right: 8px;
+}
+
+.button {
+  display: block;
+  height: 32px;
+  width: 32px;
+  font-size: 14px;
+  line-height: 22px;
+  cursor: pointer;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.buttonActive,
+.button:not(:disabled):hover,
+.button:not(:disabled):active,
+.button:not(:disabled):focus {
+  border-color: #fa8c16;
+  background-color: rgba(250, 140, 22, 0.1);
+}
+
+.select {
+  font-size: 14px;
+  line-height: 22px;
+  padding: 6px 8px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
