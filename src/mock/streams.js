@@ -1,6 +1,6 @@
 const streams = new Array(40).fill(0).map((item, idx) => ({
   id: idx + 1,
-  name: `Stream ${idx}`,
+  name: `Frontend dev Stream #${idx}`,
   startDate: new Date().toISOString(),
   endDate: new Date().toISOString(),
   interns: Math.ceil(Math.random() * 10),

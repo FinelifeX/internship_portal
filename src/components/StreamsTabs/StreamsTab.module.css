@@ -17,6 +17,7 @@
   color: rgba(0, 0, 0, 0.85);
   border-bottom: 2px solid transparent;
   padding-bottom: 12px;
+  text-align: center;
 }
 
 .tabsItemLinkActive {
