@@ -1,9 +1,9 @@
 import React from 'react';
-import caretUp from '../../assets/images/caret-up.svg';
-import caretDown from '../../assets/images/caret-down.svg';
-import filterIcon from '../../assets/images/filter.svg';
-import Button from '../Button';
-import { columnItem as columnItemType } from './propTypes';
+import caretUp from '../../../assets/images/caret-up.svg';
+import caretDown from '../../../assets/images/caret-down.svg';
+import filterIcon from '../../../assets/images/filter.svg';
+import Button from '../../Button';
+import { columnItem as columnItemType } from '../propTypes';
 import styles from './TableHeadCell.module.css';
 
 const TableHeadCell = ({ columnItem }) => {

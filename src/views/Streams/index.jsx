@@ -16,7 +16,11 @@ const Streams = () => (
       <StreamsTabs />
     </nav>
     <div className={styles.content}>
-      <Table columns={streamsTableCols} dataSource={mockStreams} />
+      <Table
+        columns={streamsTableCols}
+        dataSource={mockStreams}
+        hasPagination
+      />
     </div>
   </>
 );

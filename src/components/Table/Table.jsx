@@ -1,42 +1,30 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import PT from 'prop-types';
+import TableHead from './components/TableHead';
+import TableBody from './components/TableBody';
+import TableFoot from './components/TableFoot';
 import { columnItem } from './propTypes';
-import TableHead from './TableHead';
-import TableBody from './TableBody';
 import styles from './Table.module.css';
 
-const Table = ({ columns, dataSource, toolbelt, filterFn }) => {
-  const displayedData = useMemo(
-    () => dataSource.filter(filterFn),
-    [dataSource, filterFn],
-  );
-
-  return (
-    <div className={styles.tableContainer}>
-      <table className={styles.table}>
-        <TableHead columns={columns} />
-        <TableBody columns={columns} dataSource={displayedData} />
-        <tfoot>
-          <tr>
-            <td>Col 1</td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-  );
-};
+const Table = ({ columns, dataSource, hasPagination }) => (
+  <div className={styles.tableContainer}>
+    <table className={styles.table}>
+      <TableHead columns={columns} />
+      <TableBody columns={columns} dataSource={dataSource} />
+      {hasPagination && <TableFoot />}
+    </table>
+  </div>
+);
 
 Table.defaultProps = {
   dataSource: null,
-  toolbelt: null,
-  filterFn: (item) => item,
+  hasPagination: false,
 };
 
 Table.propTypes = {
   columns: PT.arrayOf(columnItem).isRequired,
   dataSource: PT.arrayOf(PT.shape()),
-  toolbelt: PT.element,
-  filterFn: PT.func,
+  hasPagination: PT.bool,
 };
 
 export default Table;

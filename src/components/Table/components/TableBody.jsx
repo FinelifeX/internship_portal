@@ -1,13 +1,13 @@
 import React from 'react';
 import PT from 'prop-types';
-import { columnItem } from './propTypes';
+import { columnItem } from '../propTypes';
 import TableBodyCell from './TableBodyCell';
 import styles from './TableBody.module.css';
 
 const TableBody = ({ columns, dataSource }) => (
   <tbody className={styles.tableBody}>
     {dataSource.map((dataItem) => (
-      <tr className={styles.tableBodyRow}>
+      <tr className={styles.tableBodyRow} key={dataItem.id}>
         {columns.map(({ key, dataIndex, render }) => (
           <TableBodyCell key={key}>
             {render
