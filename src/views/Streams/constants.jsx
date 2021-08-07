@@ -12,6 +12,7 @@ export const streamsTableCols = [
     key: 'name',
     dataIndex: 'name',
     title: 'Stream Name',
+    width: 290,
     render: (value, record) => (
       <Link to={`${STREAMS_ROUTES_BASE}/${record.id}`}>{value}</Link>
     ),
@@ -20,6 +21,7 @@ export const streamsTableCols = [
     key: 'startDate',
     dataIndex: 'startDate',
     title: 'Start Date',
+    width: 120,
     render: (value) => {
       const date = new Date(value);
 
@@ -31,6 +33,7 @@ export const streamsTableCols = [
   {
     key: 'duration',
     title: 'Duration',
+    width: 120,
     render: (value, record) =>
       millis2Days(new Date(record.endDate) - new Date(record.startDate)),
   },
@@ -38,27 +41,32 @@ export const streamsTableCols = [
     key: 'interns',
     dataIndex: 'interns',
     title: 'Interns',
+    width: 100,
   },
   {
     key: 'mentor',
     dataIndex: 'mentor',
     title: 'Mentor',
+    width: 200,
     render: ({ name, avatar }) => <TeamMember name={name} avatar={avatar} />,
   },
   {
     key: 'lead',
     dataIndex: 'lead',
     title: 'Lead',
+    width: 200,
     render: ({ name, avatar }) => <TeamMember name={name} avatar={avatar} />,
   },
   {
     key: 'status',
     dataIndex: 'status',
     title: 'Status',
+    width: 120,
   },
   {
     key: 'actions',
     title: '',
+    width: 54,
     render: () => <StreamActionsButton />,
   },
 ];

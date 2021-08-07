@@ -7,10 +7,10 @@ import { columnItem as columnItemType } from '../propTypes';
 import styles from './TableHeadCell.module.css';
 
 const TableHeadCell = ({ columnItem }) => {
-  const { title, sorter, filter } = columnItem;
+  const { title, sorter, filter, width } = columnItem;
 
   return (
-    <th className={styles.cell}>
+    <th className={styles.cell} width={width}>
       <div className={styles.cellInner}>
         <span>{title}</span>
         {sorter && (

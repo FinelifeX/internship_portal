@@ -8,8 +8,8 @@ const TableBody = ({ columns, dataSource }) => (
   <tbody className={styles.tableBody}>
     {dataSource.map((dataItem) => (
       <tr className={styles.tableBodyRow} key={dataItem.id}>
-        {columns.map(({ key, dataIndex, render }) => (
-          <TableBodyCell key={key}>
+        {columns.map(({ key, dataIndex, render, width }) => (
+          <TableBodyCell key={key} width={width}>
             {render
               ? render(dataItem[dataIndex], dataItem)
               : dataItem[dataIndex]}
