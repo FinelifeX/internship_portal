@@ -5,6 +5,7 @@ import StreamsTabs from '../../components/StreamsTabs';
 import Table from '../../components/Table/Table';
 import { streamsTableCols } from './constants';
 import styles from './Streams.module.css';
+import Modal from '../../components/Modal';
 
 const Streams = () => (
   <>
@@ -22,6 +23,9 @@ const Streams = () => (
         hasPagination
       />
     </div>
+    <Modal title="Add Stream" visible>
+      Hello
+    </Modal>
   </>
 );
 

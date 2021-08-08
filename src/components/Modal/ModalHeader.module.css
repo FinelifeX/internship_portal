@@ -1,0 +1,18 @@
+.header {
+  position: relative;
+  padding: 24px 24px 15px;
+}
+
+.title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+.close {
+  width: unset;
+  padding: 0;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+}
