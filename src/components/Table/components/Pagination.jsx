@@ -81,6 +81,7 @@ const Pagination = ({
 Pagination.defaultProps = {
   onPageChange: () => {},
   onDisplayChange: () => {},
+  displayedIndices: { first: 0, last: 0 },
 };
 
 Pagination.propTypes = {
