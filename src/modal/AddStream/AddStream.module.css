@@ -1,0 +1,12 @@
+.modal {
+  max-width: 632px;
+}
+
+.footerButton {
+  width: unset;
+  padding: 4px 16px;
+}
+
+.footerButton:not(:last-child) {
+  margin-right: 16px;
+}
