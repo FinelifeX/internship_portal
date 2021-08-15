@@ -2,12 +2,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { monthNumber2String } from '../../constants/monthNumber2String';
-import { millis2Days } from '../../utils/dateConverters';
+import StreamStatus from '../../constants/streamStatus';
 import { STREAMS_ROUTES_BASE } from '../../routes/streams';
+import { millis2Days } from '../../utils/dateConverters';
 import TeamMember from '../../components/TeamMember';
 import StreamActionsButton from '../../components/StreamActionsButton';
 
-export const streamsTableCols = [
+export const streamsTableCols = (streams) => [
   {
     key: 'name',
     dataIndex: 'name',
@@ -48,6 +49,16 @@ export const streamsTableCols = [
     dataIndex: 'mentor',
     title: 'Mentor',
     width: 200,
+    filters: (() => {
+      const mentors = streams.map((record) => record.mentor);
+      const mentorIds = mentors.map((mentor) => mentor.id);
+      const uniqueMentorIds = Array.from(new Set(mentorIds));
+
+      return uniqueMentorIds.map((id) =>
+        mentors.find((mentor) => mentor.id === id),
+      );
+    })(),
+    onFilter: (filterValue, record) => filterValue.includes(record.mentor.id),
     render: ({ name, avatar }) => <TeamMember name={name} avatar={avatar} />,
   },
   {
@@ -55,6 +66,16 @@ export const streamsTableCols = [
     dataIndex: 'lead',
     title: 'Lead',
     width: 200,
+    filters: (() => {
+      const leads = streams.map((record) => record.lead);
+      const leadIds = leads.map((lead) => lead.id);
+      const uniqueLeadIds = Array.from(new Set(leadIds));
+
+      return uniqueLeadIds.map((id) =>
+        leads.find((mentor) => mentor.id === id),
+      );
+    })(),
+    onFilter: (filterValue, record) => filterValue.includes(record.lead.id),
     render: ({ name, avatar }) => <TeamMember name={name} avatar={avatar} />,
   },
   {
@@ -62,6 +83,8 @@ export const streamsTableCols = [
     dataIndex: 'status',
     title: 'Status',
     width: 120,
+    filters: Object.keys(StreamStatus).map((key) => StreamStatus[key]),
+    onFilter: (filterValue, record) => filterValue.includes(record.status),
   },
   {
     key: 'actions',

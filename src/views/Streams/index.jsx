@@ -27,7 +27,7 @@ const Streams = () => {
       </nav>
       <div className={styles.content}>
         <Table
-          columns={streamsTableCols}
+          columns={streamsTableCols(mockStreams)}
           dataSource={mockStreams}
           hasPagination
         />

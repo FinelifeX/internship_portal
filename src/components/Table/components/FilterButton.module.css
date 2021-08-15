@@ -1,0 +1,18 @@
+.container {
+  position: relative;
+}
+
+.filterButton {
+  width: unset;
+  padding: 8px;
+}
+
+.filterButton img {
+  display: block;
+  height: 13px;
+}
+
+.popup {
+  position: absolute;
+  bottom: 0;
+}

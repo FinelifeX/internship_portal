@@ -1,13 +1,15 @@
 import React from 'react';
 import caretUp from '../../../assets/images/caret-up.svg';
 import caretDown from '../../../assets/images/caret-down.svg';
-import filterIcon from '../../../assets/images/filter.svg';
 import Button from '../../Button';
 import { columnItem as columnItemType } from '../propTypes';
 import styles from './TableHeadCell.module.css';
+import FilterButton from './FilterButton';
 
 const TableHeadCell = ({ columnItem }) => {
-  const { title, sorter, filter, width } = columnItem;
+  const { title, sorter, filters, width } = columnItem;
+
+  console.log(columnItem);
 
   return (
     <th className={styles.cell} width={width}>
@@ -26,16 +28,7 @@ const TableHeadCell = ({ columnItem }) => {
             </div>
           </Button>
         )}
-        {filter && (
-          <Button
-            variant="link"
-            onClick={() => {
-              // TODO: implement filtering
-            }}
-          >
-            <img src={filterIcon} alt={`Filter by ${title}`} />
-          </Button>
-        )}
+        {filters && <FilterButton title={title} filters={filters} />}
       </div>
     </th>
   );

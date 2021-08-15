@@ -7,9 +7,23 @@
 }
 
 .cellInner {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   padding: 0 17px;
 }
 
 .cell:not(:last-child) .cellInner {
   border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.filterButton {
+  width: unset;
+  padding: 8px;
+}
+
+.filterButton img {
+  display: block;
+  height: 13px;
 }
