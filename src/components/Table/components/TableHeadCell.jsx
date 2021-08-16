@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useCallback, useContext } from 'react';
 import caretUp from '../../../assets/images/caret-up.svg';
 import caretDown from '../../../assets/images/caret-down.svg';
-import Button from '../../Button';
 import { columnItem as columnItemType } from '../propTypes';
-import styles from './TableHeadCell.module.css';
+import Button from '../../Button';
+import TableContext from '../TableContext';
 import FilterButton from './FilterButton';
+import styles from './TableHeadCell.module.css';
 
 const TableHeadCell = ({ columnItem }) => {
-  const { title, sorter, filters, width } = columnItem;
+  const {
+    title,
+    sorter,
+    filters: filtersConfig,
+    width,
+    dataIndex,
+  } = columnItem;
+  const { filters, changeFilters } = useContext(TableContext);
+  const selection = filters[dataIndex];
 
-  console.log(columnItem);
+  const handleFiltersChange = useCallback(
+    (value) => {
+      changeFilters({ field: dataIndex, value });
+    },
+    [changeFilters, dataIndex],
+  );
 
   return (
     <th className={styles.cell} width={width}>
@@ -19,7 +33,7 @@ const TableHeadCell = ({ columnItem }) => {
           <Button
             variant="link"
             onClick={() => {
-              // TODO: implement filtering
+              // TODO: implement sorting
             }}
           >
             <div>
@@ -28,7 +42,14 @@ const TableHeadCell = ({ columnItem }) => {
             </div>
           </Button>
         )}
-        {filters && <FilterButton title={title} filters={filters} />}
+        {filtersConfig && (
+          <FilterButton
+            title={title}
+            filters={filtersConfig}
+            selection={selection}
+            onFiltersChange={handleFiltersChange}
+          />
+        )}
       </div>
     </th>
   );

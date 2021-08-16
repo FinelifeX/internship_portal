@@ -1,43 +1,42 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PT from 'prop-types';
 import filterIcon from '../../../assets/images/filter.svg';
 import Button from '../../Button';
+import FilterPopup from './FilterPopup';
 import styles from './FilterButton.module.css';
 
-const FilterButton = ({ title, filters }) => {
+const FilterButton = ({ title, filters, selection, onFiltersChange }) => {
   const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = useCallback(() => {
+    setShowPopup((shown) => !shown);
+  }, []);
+
+  useEffect(() => {
+    if (showPopup) {
+      document.addEventListener('click', togglePopup);
+    }
+
+    return () => {
+      document.removeEventListener('click', togglePopup);
+    };
+  }, [showPopup, togglePopup]);
 
   return (
     <div className={styles.container}>
       <Button
         variant="link"
         className={styles.filterButton}
-        onClick={() => {
-          setShowPopup((shown) => !shown);
-        }}
+        onClick={togglePopup}
       >
         <img src={filterIcon} alt={`Filter by ${title}`} />
       </Button>
       {showPopup && (
-        <div className={styles.popup}>
-          <ul className={styles.filters}>
-            {filters.map(({ id, name }) => {
-              const checkboxId = `filter-${id}`;
-              return (
-                <li key={id} className={styles.filtersItem}>
-                  <label htmlFor={checkboxId}>
-                    <input
-                      type="checkbox"
-                      id={checkboxId}
-                      className={styles.filtersItemCheckbox}
-                    />
-                    {name}
-                  </label>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <FilterPopup
+          options={filters}
+          onChange={onFiltersChange}
+          selection={selection}
+        />
       )}
     </div>
   );
@@ -50,7 +49,9 @@ FilterButton.defaultProps = {
 
 FilterButton.propTypes = {
   title: PT.string,
-  filters: PT.arrayOf(PT.shape()),
+  filters: PT.arrayOf(PT.oneOfType([PT.shape(), PT.string])),
+  selection: PT.arrayOf(PT.oneOfType([PT.string, PT.number])).isRequired,
+  onFiltersChange: PT.func.isRequired,
 };
 
 export default FilterButton;

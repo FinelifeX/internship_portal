@@ -79,6 +79,7 @@ module.exports = {
     hot: true,
     port: 3000,
     historyApiFallback: true,
+    open: true,
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],

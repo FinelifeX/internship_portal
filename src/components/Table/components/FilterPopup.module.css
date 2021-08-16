@@ -1,0 +1,31 @@
+.popup {
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+  transform: translate(-60%, 5%);
+}
+
+.filters {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filtersItem:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.filtersItem label {
+  display: block;
+  padding: 4px 8px;
+}
+
+.filtersItem label,
+.filtersItem input {
+  cursor: pointer;
+}
+
+.filtersItem input {
+  margin: 0 8px 0 0;
+  height: 13px;
+}
