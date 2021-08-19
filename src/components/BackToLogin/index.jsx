@@ -5,7 +5,10 @@ import styles from './BackToLogin.module.css';
 
 const BackToLogin = () => (
   <p className={styles.text}>
-    Remembered your password? <Link to={AuthRoutes.Login}>Back to Log In</Link>
+    Remembered your password?{' '}
+    <Link data-testid="login" to={AuthRoutes.Login}>
+      Back to Log In
+    </Link>
   </p>
 );
 

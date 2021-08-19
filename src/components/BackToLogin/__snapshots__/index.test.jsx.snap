@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackToLogin component should render correctly 1`] = `
+<p
+  className="text"
+>
+  Remembered your password?
+   
+  <a
+    data-testid="login"
+    href="/auth/login"
+    onClick={[Function]}
+  >
+    Back to Log In
+  </a>
+</p>
+`;
