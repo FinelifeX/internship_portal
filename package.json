@@ -8,7 +8,7 @@
     "build": "cross-env NODE_ENV=production webpack",
     "lint": "eslint --ext .jsx,.js src/",
     "lint-fix": "eslint --fix --ext .jsx,.js index.js src/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "React",
@@ -22,8 +22,10 @@
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+    "@testing-library/react": "^12.0.0",
     "@types/webpack": "^5.28.0",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "cross-env": "^7.0.3",
     "css-loader": "^6.0.0",
@@ -38,8 +40,11 @@
     "eslint-webpack-plugin": "^3.0.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.0.6",
     "prettier": "^2.3.2",
     "react-refresh": "^0.10.0",
+    "react-test-renderer": "^17.0.2",
     "style-loader": "^3.1.0",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
