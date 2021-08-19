@@ -12,7 +12,7 @@ import { MemoryRouter } from 'react-router-dom';
  * @param children
  * @returns {JSX.Element}
  */
-export const render = (Component, { defaultProps, props, children }) => (
+export const render = (Component, { defaultProps, props, children } = {}) => (
   <Component {...defaultProps} {...props}>
     {children}
   </Component>
@@ -29,8 +29,8 @@ export const render = (Component, { defaultProps, props, children }) => (
  */
 export const renderWithRouter = (
   Component,
-  { defaultProps, props, children },
-  routerOptions,
+  { defaultProps, props, children } = {},
+  routerOptions = {},
 ) => (
   <MemoryRouter {...routerOptions}>
     <Component {...defaultProps} {...props}>
@@ -46,5 +46,6 @@ export const shallow = TR.create;
 
 /**
  * Render component using "render()" from "@testing-library/react"
+ * @type {import('@testing-library/react').render}
  */
 export const mount = RTLRender;

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthTabs component should render correctly 1`] = `
+<nav
+  className="nav"
+>
+  <ul
+    className="navList"
+  >
+    <li
+      className="navItem"
+    >
+      <a
+        aria-current={null}
+        className="navItemLink"
+        data-testid="login"
+        href="/auth/login"
+        onClick={[Function]}
+      >
+        Login
+      </a>
+    </li>
+    <li
+      className="navItem"
+    >
+      <a
+        aria-current={null}
+        className="navItemLink"
+        data-testid="signup"
+        href="/auth/sign-up"
+        onClick={[Function]}
+      >
+        Sign Up
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
