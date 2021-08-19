@@ -1,5 +1,5 @@
 import { fireEvent } from '@testing-library/react';
-import { domRender, shallowRender } from 'test-utils/renderHelpers';
+import { shallow, mount, render } from 'test-utils/renderHelpers';
 import Button from './index';
 
 describe('Button component', () => {
@@ -12,16 +12,13 @@ describe('Button component', () => {
   const children = 'button';
 
   it('should render correctly', () => {
-    const tree = shallowRender(Button, {
-      defaultProps,
-      children,
-    }).toJSON();
+    const tree = shallow(render(Button, { defaultProps, children })).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should call onClick 1 time when clicked', () => {
-    const { getByTestId } = domRender(Button, { defaultProps, children });
+    const { getByTestId } = mount(render(Button, { defaultProps, children }));
 
     fireEvent.click(getByTestId(TEST_ID));
 

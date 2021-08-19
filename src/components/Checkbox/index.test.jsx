@@ -1,5 +1,5 @@
 import { fireEvent } from '@testing-library/react';
-import { domRender, shallowRender } from 'test-utils/renderHelpers';
+import { shallow, mount, render } from 'test-utils/renderHelpers';
 import Checkbox from './index';
 
 describe('Checkbox component', () => {
@@ -14,15 +14,17 @@ describe('Checkbox component', () => {
   };
 
   it('should render correctly', () => {
-    const elem = shallowRender(Checkbox, {
-      defaultProps,
-    }).toJSON();
+    const elem = shallow(
+      render(Checkbox, {
+        defaultProps,
+      }),
+    ).toJSON();
 
     expect(elem).toMatchSnapshot();
   });
 
   const renderComponent = (props) =>
-    domRender(Checkbox, { defaultProps, props });
+    mount(render(Checkbox, { defaultProps, props }));
 
   it('should have correct label', () => {
     const { getByTestId } = renderComponent();

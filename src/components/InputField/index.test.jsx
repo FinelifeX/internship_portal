@@ -1,5 +1,5 @@
 import { fireEvent } from '@testing-library/react';
-import { shallowRender, domRender } from 'test-utils/renderHelpers';
+import { shallow, mount, render } from 'test-utils/renderHelpers';
 import InputField from './index';
 
 describe('InputField component', () => {
@@ -11,13 +11,13 @@ describe('InputField component', () => {
   };
 
   it('should render correctly', () => {
-    const tree = shallowRender(InputField, { defaultProps }).toJSON();
+    const tree = shallow(render(InputField, { defaultProps })).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   const renderComponent = (props) =>
-    domRender(InputField, { defaultProps, props });
+    mount(render(InputField, { defaultProps, props }));
 
   it('should have value that was passed via props', () => {
     const props = { value: '123' };

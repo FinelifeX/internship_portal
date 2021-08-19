@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import TR from 'react-test-renderer';
-import { render } from '@testing-library/react';
+import { render as RTLRender } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 /**
@@ -12,7 +12,7 @@ import { MemoryRouter } from 'react-router-dom';
  * @param children
  * @returns {JSX.Element}
  */
-const renderComponent = (Component, { defaultProps, props, children }) => (
+export const render = (Component, { defaultProps, props, children }) => (
   <Component {...defaultProps} {...props}>
     {children}
   </Component>
@@ -27,7 +27,7 @@ const renderComponent = (Component, { defaultProps, props, children }) => (
  * @param routerOptions
  * @returns {JSX.Element}
  */
-const renderComponentWithRouter = (
+export const renderWithRouter = (
   Component,
   { defaultProps, props, children },
   routerOptions,
@@ -40,32 +40,11 @@ const renderComponentWithRouter = (
 );
 
 /**
- * Component renderer functions
- * @type {{renderComponent: (function(*, {defaultProps: *, props: *, children: *})), renderComponentWithRouter: (function(*, {defaultProps: *, props: *, children: *}, *))}}
- */
-export const ComponentRenderers = {
-  renderComponent,
-  renderComponentWithRouter,
-};
-
-/**
  * Shallow render component using "react-test-renderer"
- * @param Component
- * @param defaultProps
- * @param props
- * @param children
  */
-export const shallowRender = (
-  Component,
-  { defaultProps, props, children } = {},
-) => TR.create(renderComponent(Component, { defaultProps, props, children }));
+export const shallow = TR.create;
 
 /**
  * Render component using "render()" from "@testing-library/react"
- * @param Component
- * @param defaultProps
- * @param props
- * @param children
  */
-export const domRender = (Component, { defaultProps, props, children } = {}) =>
-  render(renderComponent(Component, { defaultProps, props, children }));
+export const mount = RTLRender;
