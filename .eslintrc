@@ -4,9 +4,11 @@
   "plugins": ["prettier"],
   "ignorePatterns": ["*.d.ts"],
   "env": {
-    "browser": true
+    "browser": true,
+    "jest": true
   },
   "rules": {
-    "prettier/prettier": ["error"]
+    "prettier/prettier": ["error"],
+    "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }]
   }
 }

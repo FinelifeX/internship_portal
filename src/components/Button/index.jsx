@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React from 'react';
 import PT from 'prop-types';
 import classNames from 'classnames';
@@ -13,8 +14,12 @@ const Button = ({ children, className, variant, type, onClick }) => {
   });
 
   return (
-    // eslint-disable-next-line react/button-has-type
-    <button className={resultClassName} type={type} onClick={onClick}>
+    <button
+      data-testid="button"
+      className={resultClassName}
+      type={type}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
