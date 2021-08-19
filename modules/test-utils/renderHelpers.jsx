@@ -5,33 +5,48 @@ import { render as RTLRender } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 /**
+ * @typedef {Object.<string, any>} Props
+ */
+
+/**
+ * @typedef {React.ReactNode} Children
+ */
+
+/**
+ * @typedef {{props?: Props, children?: Children}} RenderOptions
+ */
+
+/**
  *
- * @param Component
- * @param props
- * @param children
+ * @param {React.ComponentType} Component
+ * @param {RenderOptions} [options]
  * @returns {JSX.Element}
  */
-export const render = (Component, { props, children } = {}) => (
-  <Component {...props}>{children}</Component>
-);
+export const render = (Component, options = {}) => {
+  const { props, children } = options;
+  return <Component {...props}>{children}</Component>;
+};
 
 /**
  * Render React component inside MemoryRouter
- * @param Component
- * @param props
- * @param children
- * @param routerOptions
+ * @param {React.ComponentType} Component
+ * @param {RenderOptions} [options]
+ * @param {import('react-router-dom').MemoryRouterProps} routerOptions
  * @returns {JSX.Element}
  */
 export const renderWithRouter = (
   Component,
-  { props, children } = {},
+  options = {},
   routerOptions = {},
-) => (
-  <MemoryRouter {...routerOptions}>
-    <Component {...props}>{children}</Component>
-  </MemoryRouter>
-);
+) => {
+  const { props, children } = options;
+
+  return (
+    <MemoryRouter {...routerOptions}>
+      <Component {...props}>{children}</Component>
+    </MemoryRouter>
+  );
+};
 
 /**
  * Shallow render component using "react-test-renderer"
