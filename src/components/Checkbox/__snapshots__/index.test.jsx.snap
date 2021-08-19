@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox component should render correctly 1`] = `
+<span
+  className="container"
+>
+  <input
+    checked={true}
+    className="checkbox"
+    data-testid="checkbox"
+    id="checkbox"
+    onChange={[MockFunction]}
+    type="checkbox"
+  />
+  <label
+    className="label"
+    data-testid="label"
+    htmlFor="checkbox"
+  >
+    checkbox
+  </label>
+</span>
+`;

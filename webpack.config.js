@@ -82,6 +82,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
+    modules: [makePath('modules'), 'node_modules'],
   },
   output: {
     path: makePath('./dist'),

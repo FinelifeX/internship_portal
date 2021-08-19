@@ -9,6 +9,10 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
+    "paths": {
+      "test-utils": ["modules/test-utils"]
+    }
   },
-  "include": ["src/**/*", "index.js", "*.d.ts"]
+  "include": ["src/**/*",
+    "modules/**/*", "index.js", "*.d.ts"]
 }

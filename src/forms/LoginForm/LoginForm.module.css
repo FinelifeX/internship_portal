@@ -10,6 +10,7 @@
 .rememberMeCheckbox {
   width: unset;
   margin: 0;
+  flex-direction: row;
 }
 
 .actions {
