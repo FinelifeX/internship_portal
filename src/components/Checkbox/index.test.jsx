@@ -21,8 +21,11 @@ describe('Checkbox component', () => {
     expect(elem).toMatchSnapshot();
   });
 
+  const renderComponent = (props) =>
+    domRender(Checkbox, { defaultProps, props });
+
   it('should have correct label', () => {
-    const { getByTestId } = domRender(Checkbox, { defaultProps });
+    const { getByTestId } = renderComponent();
 
     expect(getByTestId(TEST_ID_TEXT)).toHaveTextContent(defaultProps.label);
   });
@@ -31,13 +34,13 @@ describe('Checkbox component', () => {
     const props = {
       checked: true,
     };
-    const { getByTestId } = domRender(Checkbox, { defaultProps, props });
+    const { getByTestId } = renderComponent(props);
 
     expect(getByTestId(TEST_ID_INPUT)).toBeChecked();
   });
 
   it('should call onChange 1 time when checkbox is clicked', () => {
-    const { getByTestId } = domRender(Checkbox, { defaultProps });
+    const { getByTestId } = renderComponent();
     const input = getByTestId(TEST_ID_INPUT);
 
     fireEvent.click(input);
@@ -46,11 +49,20 @@ describe('Checkbox component', () => {
   });
 
   it("should call onChange when checkbox's label was clicked", () => {
-    const { getByTestId } = domRender(Checkbox, { defaultProps });
+    const { getByTestId } = renderComponent();
     const label = getByTestId(TEST_ID_LABEL);
 
     fireEvent.click(label);
 
     expect(defaultProps.onChange).toBeCalled();
+  });
+
+  it('should be checked after being clicked', () => {
+    const { getByTestId } = renderComponent();
+    const elem = getByTestId(TEST_ID_INPUT);
+
+    fireEvent.click(elem);
+
+    expect(elem).toBeChecked();
   });
 });

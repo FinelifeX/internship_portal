@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox component should render correctly 1`] = `
-<span
+<label
   className="container"
+  data-testid="label"
+  htmlFor="checkbox"
 >
   <input
     checked={true}
@@ -12,12 +14,11 @@ exports[`Checkbox component should render correctly 1`] = `
     onChange={[MockFunction]}
     type="checkbox"
   />
-  <label
+  <span
     className="label"
-    data-testid="label"
-    htmlFor="checkbox"
+    data-testid="text"
   >
     checkbox
-  </label>
-</span>
+  </span>
+</label>
 `;

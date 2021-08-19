@@ -1,6 +1,5 @@
-import React from 'react';
-import TR from 'react-test-renderer';
-import { render, fireEvent } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
+import { shallowRender, domRender } from 'test-utils/renderHelpers';
 import InputField from './index';
 
 describe('InputField component', () => {
@@ -10,48 +9,43 @@ describe('InputField component', () => {
     onFocus: jest.fn(),
     onBlur: jest.fn(),
   };
-  const renderComponent = (props) => (
-    <InputField {...defaultProps} {...props} />
-  );
-  const renderElement = (props) => {
-    const { getByTestId } = render(renderComponent(props));
-
-    return getByTestId(TEST_ID);
-  };
 
   it('should render correctly', () => {
-    const tree = TR.create(renderComponent()).toJSON();
+    const tree = shallowRender(InputField, { defaultProps }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
-  it('should have value that was passed via props', () => {
-    const value = '123';
-    const elem = renderElement({ value });
+  const renderComponent = (props) =>
+    domRender(InputField, { defaultProps, props });
 
-    expect(elem).toHaveValue(value);
+  it('should have value that was passed via props', () => {
+    const props = { value: '123' };
+    const { getByTestId } = renderComponent(props);
+
+    expect(getByTestId(TEST_ID)).toHaveValue(props.value);
   });
 
   it('should call onFocus when focused', () => {
-    const elem = renderElement();
+    const { getByTestId } = renderComponent();
 
-    fireEvent.focus(elem);
+    fireEvent.focus(getByTestId(TEST_ID));
 
     expect(defaultProps.onFocus).toBeCalledTimes(1);
   });
 
   it('should call onBlur when unfocused', () => {
-    const elem = renderElement();
+    const { getByTestId } = renderComponent();
 
-    fireEvent.blur(elem);
+    fireEvent.blur(getByTestId(TEST_ID));
 
     expect(defaultProps.onBlur).toBeCalledTimes(1);
   });
 
   it('should call onChange with provided value when change occurs', () => {
-    const elem = renderElement();
+    const { getByTestId } = renderComponent();
 
-    fireEvent.change(elem, { target: { value: '123' } });
+    fireEvent.change(getByTestId(TEST_ID), { target: { value: '123' } });
 
     expect(defaultProps.onChange).toBeCalledTimes(1);
   });
