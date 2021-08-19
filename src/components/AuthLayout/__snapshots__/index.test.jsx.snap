@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthLayout component should render correctly 1`] = `
+<main
+  className="main"
+>
+  <section
+    className="section"
+  >
+    <div
+      className="logoContainer"
+    >
+      <img
+        alt="Akvelon Logo"
+        className="logo"
+        src="test-file-stub"
+      />
+    </div>
+    <div
+      className="content"
+    >
+      Hello, world!
+    </div>
+  </section>
+</main>
+`;

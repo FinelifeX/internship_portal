@@ -83,6 +83,9 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx'],
     modules: [makePath('modules'), 'node_modules'],
+    alias: {
+      'test-utils': makePath('modules/test-utils/'),
+    },
   },
   output: {
     path: makePath('./dist'),

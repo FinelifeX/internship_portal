@@ -8,6 +8,7 @@ const AuthTabs = () => (
     <ul className={styles.navList}>
       <li className={styles.navItem}>
         <NavLink
+          data-testid="login"
           to={AuthRoutes.Login}
           exact
           className={styles.navItemLink}
@@ -18,6 +19,7 @@ const AuthTabs = () => (
       </li>
       <li className={styles.navItem}>
         <NavLink
+          data-testid="signup"
           to={AuthRoutes.SignUp}
           exact
           className={styles.navItemLink}
