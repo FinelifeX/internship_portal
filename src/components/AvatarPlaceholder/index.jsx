@@ -14,7 +14,9 @@ const AvatarPlaceholder = ({ fullName, size }) => {
 
   return (
     <div className={styles.circle} style={{ width: size, height: size }}>
-      <span className={styles.letters}>{letters}</span>
+      <span data-testid="text" className={styles.letters}>
+        {letters}
+      </span>
     </div>
   );
 };

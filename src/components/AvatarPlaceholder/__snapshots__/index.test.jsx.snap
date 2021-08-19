@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvatarPlaceholder component should render correctly 1`] = `
+<div
+  className="circle"
+  style={
+    Object {
+      "height": "22px",
+      "width": "22px",
+    }
+  }
+>
+  <span
+    className="letters"
+    data-testid="text"
+  >
+    AJ
+  </span>
+</div>
+`;
