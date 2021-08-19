@@ -8,7 +8,7 @@ describe('AvatarPlaceholder component', () => {
     fullName: 'Adam Jensen',
   };
   const renderComponent = (props) =>
-    render(AvatarPlaceholder, { defaultProps, props });
+    render(AvatarPlaceholder, { props: { ...defaultProps, ...props } });
 
   it('should render correctly', () => {
     const tree = shallow(renderComponent()).toJSON();

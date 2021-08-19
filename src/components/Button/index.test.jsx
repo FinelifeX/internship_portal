@@ -12,13 +12,17 @@ describe('Button component', () => {
   const children = 'button';
 
   it('should render correctly', () => {
-    const tree = shallow(render(Button, { defaultProps, children })).toJSON();
+    const tree = shallow(
+      render(Button, { props: defaultProps, children }),
+    ).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should call onClick 1 time when clicked', () => {
-    const { getByTestId } = mount(render(Button, { defaultProps, children }));
+    const { getByTestId } = mount(
+      render(Button, { props: defaultProps, children }),
+    );
 
     fireEvent.click(getByTestId(TEST_ID));
 

@@ -16,7 +16,7 @@ describe('Checkbox component', () => {
   it('should render correctly', () => {
     const elem = shallow(
       render(Checkbox, {
-        defaultProps,
+        props: defaultProps,
       }),
     ).toJSON();
 
@@ -24,7 +24,7 @@ describe('Checkbox component', () => {
   });
 
   const renderComponent = (props) =>
-    mount(render(Checkbox, { defaultProps, props }));
+    mount(render(Checkbox, { props: { ...defaultProps, ...props } }));
 
   it('should have correct label', () => {
     const { getByTestId } = renderComponent();

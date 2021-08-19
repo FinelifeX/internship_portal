@@ -5,23 +5,19 @@ import { render as RTLRender } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 /**
- * Render React component
+ *
  * @param Component
- * @param defaultProps
  * @param props
  * @param children
  * @returns {JSX.Element}
  */
-export const render = (Component, { defaultProps, props, children } = {}) => (
-  <Component {...defaultProps} {...props}>
-    {children}
-  </Component>
+export const render = (Component, { props, children } = {}) => (
+  <Component {...props}>{children}</Component>
 );
 
 /**
  * Render React component inside MemoryRouter
  * @param Component
- * @param defaultProps
  * @param props
  * @param children
  * @param routerOptions
@@ -29,18 +25,17 @@ export const render = (Component, { defaultProps, props, children } = {}) => (
  */
 export const renderWithRouter = (
   Component,
-  { defaultProps, props, children } = {},
+  { props, children } = {},
   routerOptions = {},
 ) => (
   <MemoryRouter {...routerOptions}>
-    <Component {...defaultProps} {...props}>
-      {children}
-    </Component>
+    <Component {...props}>{children}</Component>
   </MemoryRouter>
 );
 
 /**
  * Shallow render component using "react-test-renderer"
+ * @type {import('react-test-renderer').create}
  */
 export const shallow = TR.create;
 

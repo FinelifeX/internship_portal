@@ -11,13 +11,13 @@ describe('InputField component', () => {
   };
 
   it('should render correctly', () => {
-    const tree = shallow(render(InputField, { defaultProps })).toJSON();
+    const tree = shallow(render(InputField, { props: defaultProps })).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   const renderComponent = (props) =>
-    mount(render(InputField, { defaultProps, props }));
+    mount(render(InputField, { props: { ...defaultProps, ...props } }));
 
   it('should have value that was passed via props', () => {
     const props = { value: '123' };
