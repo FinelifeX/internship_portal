@@ -5,6 +5,8 @@ import Checkbox from './index';
 describe('Checkbox component', () => {
   const TEST_ID_INPUT = 'checkbox';
   const TEST_ID_LABEL = 'label';
+  const TEST_ID_TEXT = 'text';
+
   const defaultProps = {
     label: 'checkbox',
     checked: true,
@@ -22,7 +24,7 @@ describe('Checkbox component', () => {
   it('should have correct label', () => {
     const { getByTestId } = domRender(Checkbox, { defaultProps });
 
-    expect(getByTestId(TEST_ID_LABEL)).toHaveTextContent(defaultProps.label);
+    expect(getByTestId(TEST_ID_TEXT)).toHaveTextContent(defaultProps.label);
   });
 
   it('should be checked if checked prop === true', () => {
@@ -43,7 +45,7 @@ describe('Checkbox component', () => {
     expect(defaultProps.onChange).toBeCalledTimes(1);
   });
 
-  it("should call onChange 1 time when checkbox's label was clicked", () => {
+  it("should call onChange when checkbox's label was clicked", () => {
     const { getByTestId } = domRender(Checkbox, { defaultProps });
     const label = getByTestId(TEST_ID_LABEL);
 

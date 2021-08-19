@@ -4,7 +4,11 @@ import classNames from 'classnames';
 import styles from './Checkbox.module.css';
 
 const Checkbox = ({ label, className, checked, onChange }) => (
-  <span className={classNames(styles.container, className)}>
+  <label
+    data-testid="label"
+    className={classNames(styles.container, className)}
+    htmlFor="checkbox"
+  >
     <input
       data-testid="checkbox"
       className={styles.checkbox}
@@ -13,10 +17,10 @@ const Checkbox = ({ label, className, checked, onChange }) => (
       checked={checked ?? undefined}
       onChange={onChange}
     />
-    <label data-testid="label" className={styles.label} htmlFor="checkbox">
+    <span data-testid="text" className={styles.label}>
       {label}
-    </label>
-  </span>
+    </span>
+  </label>
 );
 
 Checkbox.defaultProps = {
