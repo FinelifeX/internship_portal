@@ -14,6 +14,7 @@ const InputField = ({
   onBlur,
 }) => (
   <input
+    data-testid="input"
     className={classNames(styles.input, className)}
     id={id}
     type={type}

@@ -8,4 +8,5 @@ module.exports = {
       '<rootDir>/__mocks__/fileMock.js',
     '\\.(css)$': 'identity-obj-proxy',
   },
+  setupFilesAfterEnv: ['<rootDir>/jest-setup.js'],
 };

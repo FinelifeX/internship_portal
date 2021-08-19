@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputField component should render correctly 1`] = `
+<input
+  className="input"
+  data-testid="input"
+  onBlur={[MockFunction]}
+  onChange={[MockFunction]}
+  onFocus={[MockFunction]}
+  placeholder=""
+  type="text"
+/>
+`;
