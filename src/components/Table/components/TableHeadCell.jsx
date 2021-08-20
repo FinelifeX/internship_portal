@@ -10,7 +10,7 @@ const TableHeadCell = ({ columnItem }) => {
   const { title, sorter, filter, width } = columnItem;
 
   return (
-    <th className={styles.cell} width={width}>
+    <th className={styles.cell} style={{ width }}>
       <div className={styles.cellInner}>
         <span>{title}</span>
         {sorter && (
