@@ -27,7 +27,7 @@ TableBody.defaultProps = {
 
 TableBody.propTypes = {
   columns: PT.arrayOf(columnItem),
-  dataSource: PT.arrayOf(PT.shape()),
+  dataSource: PT.arrayOf(PT.shape({})),
 };
 
 export default TableBody;
