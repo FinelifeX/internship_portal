@@ -6,7 +6,7 @@ import styles from './TeamMember.module.css';
 const TeamMember = ({ name, avatar }) => (
   <div className={styles.container}>
     {avatar ? (
-      <img style={styles.avatar} src={avatar} alt={`${name} avatar`} />
+      <img className={styles.avatar} src={avatar} alt={`${name} avatar`} />
     ) : (
       <AvatarPlaceholder fullName={name} />
     )}
