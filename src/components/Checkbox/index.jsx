@@ -14,7 +14,7 @@ const Checkbox = ({ label, className, checked, onChange }) => (
       className={styles.checkbox}
       id="checkbox"
       type="checkbox"
-      checked={checked ?? undefined}
+      checked={checked}
       onChange={onChange}
     />
     <span data-testid="text" className={styles.label}>
