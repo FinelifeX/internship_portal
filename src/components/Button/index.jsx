@@ -4,7 +4,14 @@ import PT from 'prop-types';
 import classNames from 'classnames';
 import styles from './Button.module.css';
 
-const Button = ({ children, className, variant, type, onClick }) => {
+const Button = ({
+  children,
+  className,
+  variant,
+  type,
+  onClick,
+  'data-testid': dataTestId,
+}) => {
   const resultClassName = classNames({
     [styles.button]: true,
     [styles.primary]: variant === 'primary',
@@ -15,7 +22,7 @@ const Button = ({ children, className, variant, type, onClick }) => {
 
   return (
     <button
-      data-testid="button"
+      data-testid={dataTestId}
       className={resultClassName}
       type={type}
       onClick={onClick}
@@ -30,6 +37,7 @@ Button.defaultProps = {
   variant: 'primary',
   type: 'button',
   onClick: undefined,
+  'data-testid': 'button',
 };
 
 Button.propTypes = {
@@ -43,6 +51,7 @@ Button.propTypes = {
   variant: PT.oneOf(['primary', 'outline', 'link']),
   type: PT.oneOf(['button', 'submit']),
   onClick: PT.func,
+  'data-testid': PT.string,
 };
 
 export default Button;

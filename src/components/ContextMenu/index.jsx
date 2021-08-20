@@ -18,11 +18,12 @@ const ContextMenu = ({ options, className, visible, onClose }) => {
   if (!visible) return null;
 
   return (
-    <div className={classNames(styles.menu, className)}>
+    <div data-testid="container" className={classNames(styles.menu, className)}>
       <ul className={styles.menuItems}>
         {options.map(({ key, title, action, className: optionClassName }) => (
-          <li key={key} className={styles.menuItem}>
+          <li data-testid="option" key={key} className={styles.menuItem}>
             <Button
+              data-testid="optionButton"
               className={classNames(styles.menuButton, optionClassName)}
               variant="link"
               onClick={action}

@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContextMenu component should render correctly 1`] = `
+<div
+  className="menu"
+  data-testid="container"
+>
+  <ul
+    className="menuItems"
+  >
+    <li
+      className="menuItem"
+      data-testid="option"
+    >
+      <button
+        className="button link menuButton"
+        data-testid="button"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Option 0
+      </button>
+    </li>
+    <li
+      className="menuItem"
+      data-testid="option"
+    >
+      <button
+        className="button link menuButton"
+        data-testid="button"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Option 1
+      </button>
+    </li>
+    <li
+      className="menuItem"
+      data-testid="option"
+    >
+      <button
+        className="button link menuButton"
+        data-testid="button"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Option 2
+      </button>
+    </li>
+    <li
+      className="menuItem"
+      data-testid="option"
+    >
+      <button
+        className="button link menuButton"
+        data-testid="button"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Option 3
+      </button>
+    </li>
+  </ul>
+</div>
+`;
