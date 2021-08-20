@@ -4,7 +4,11 @@ import classNames from 'classnames';
 import styles from './Form.module.css';
 
 const Form = ({ children, className, onSubmit }) => (
-  <form className={classNames(styles.form, className)} onSubmit={onSubmit}>
+  <form
+    data-testid="form"
+    className={classNames(styles.form, className)}
+    onSubmit={onSubmit}
+  >
     {children}
   </form>
 );
@@ -15,7 +19,7 @@ Form.defaultProps = {
 };
 
 Form.propTypes = {
-  children: PT.arrayOf(PT.element).isRequired,
+  children: PT.node.isRequired,
   className: PT.string,
   onSubmit: PT.func,
 };

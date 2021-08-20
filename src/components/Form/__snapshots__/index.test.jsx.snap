@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form component should render correctly 1`] = `
+<form
+  className="form"
+  data-testid="form"
+  onSubmit={[MockFunction]}
+>
+  hello
+</form>
+`;
