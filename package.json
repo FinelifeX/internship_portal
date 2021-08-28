@@ -8,7 +8,9 @@
     "build": "cross-env NODE_ENV=production webpack",
     "lint": "eslint --ext .jsx,.js src/",
     "lint-fix": "eslint --fix --ext .jsx,.js index.js src/",
-    "test": "jest"
+    "test": "jest",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "keywords": [
     "React",
@@ -22,6 +24,12 @@
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
+    "@storybook/addon-actions": "^6.4.0-alpha.32",
+    "@storybook/addon-essentials": "^6.4.0-alpha.32",
+    "@storybook/addon-links": "^6.4.0-alpha.32",
+    "@storybook/builder-webpack5": "^6.4.0-alpha.32",
+    "@storybook/manager-webpack5": "^6.4.0-alpha.32",
+    "@storybook/react": "^6.4.0-alpha.32",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "@types/webpack": "^5.28.0",
