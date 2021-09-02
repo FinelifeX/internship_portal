@@ -18,19 +18,9 @@
     "noImplicitAny": true,
     "skipLibCheck": true
   },
-  "include": [
-    "src/**/*",
-    "modules/**/*",
-    "index.tsx",
-    "*.d.ts"
-  ],
   "exclude": [
-    "node_modules", 
-    "dist", 
-    "__mocks__", 
-    "src/**/*.js",
-    "src/**/*.jsx",
-    "modules/**/*.js",
-    "modules/**/*.jsx",
+    "node_modules",
+    "dist",
+    "__mocks__"
   ]
 }

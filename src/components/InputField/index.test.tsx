@@ -1,10 +1,10 @@
 import { fireEvent } from '@testing-library/react';
 import { shallow, mount, render } from 'test-utils/renderHelpers';
-import InputField from './index';
+import InputField, { InputFieldProps } from './index';
 
 describe('InputField component', () => {
   const TEST_ID = 'input';
-  const defaultProps = {
+  const defaultProps: InputFieldProps = {
     onChange: jest.fn(),
     onFocus: jest.fn(),
     onBlur: jest.fn(),
@@ -16,7 +16,7 @@ describe('InputField component', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  const renderComponent = (props) =>
+  const renderComponent = (props: Partial<InputFieldProps> = {}) =>
     mount(render(InputField, { props: { ...defaultProps, ...props } }));
 
   it('should have value that was passed via props', () => {

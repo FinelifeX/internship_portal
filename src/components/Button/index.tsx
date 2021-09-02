@@ -3,8 +3,7 @@ import React, { FC, SyntheticEvent } from 'react';
 import classNames from 'classnames';
 import styles from './Button.module.css';
 
-type ButtonProps = {
-  children: React.ReactNode;
+export type ButtonProps = {
   className?: string;
   variant?: 'primary' | 'outline' | 'link';
   type?: 'button' | 'submit';

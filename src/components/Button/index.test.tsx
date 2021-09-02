@@ -1,10 +1,10 @@
 import { fireEvent } from '@testing-library/react';
 import { shallow, mount, render } from 'test-utils/renderHelpers';
-import Button from './index';
+import Button, { ButtonProps } from '.';
 
 describe('Button component', () => {
   const TEST_ID = 'button';
-  const defaultProps = {
+  const defaultProps: Partial<ButtonProps> = {
     variant: 'primary',
     type: 'button',
     onClick: jest.fn(),
