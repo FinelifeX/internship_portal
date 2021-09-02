@@ -63,11 +63,9 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'ts-loader',
-          },
-        ],
+        use: {
+          loader: 'ts-loader',
+        },
       },
     ],
   },
@@ -90,7 +88,7 @@ module.exports = {
     historyApiFallback: true,
     open: true,
   },
-  devtool: 'inline-source-map',
+  devtool: isDevelopment ? 'inline-source-map' : undefined,
   resolve: {
     extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
     modules: [makePath('modules'), 'node_modules'],

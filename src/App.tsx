@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import { AuthRoutes, AUTH_ROUTES_BASE } from './routes/auth';
@@ -11,7 +11,7 @@ import MainLayout from './components/MainLayout';
 
 import './assets/styles/index.css';
 
-const App = () => (
+const App: FC = () => (
   <BrowserRouter>
     <Switch>
       <Redirect from="/" to={AUTH_ROUTES_BASE} exact />
