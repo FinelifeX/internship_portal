@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC } from 'react';
+import React, { ChangeEventHandler, FC, FocusEventHandler } from 'react';
 import classNames from 'classnames';
 import styles from './InputField.module.css';
 
@@ -9,8 +9,8 @@ export type InputFieldProps = {
   value?: string | number;
   placeholder?: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
-  onFocus: () => void;
-  onBlur: () => void;
+  onFocus: FocusEventHandler<HTMLInputElement>;
+  onBlur: FocusEventHandler<HTMLInputElement>;
 };
 const InputField: FC<InputFieldProps> = ({
   className,
