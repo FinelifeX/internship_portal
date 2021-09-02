@@ -1,7 +1,11 @@
 {
-  "parser": "@babel/eslint-parser",
-  "plugins": ["prettier"],
-  "extends": ["airbnb", "airbnb/hooks", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["./tsconfig.json"],
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": ["airbnb", "airbnb-typescript", "airbnb/hooks", "prettier"],
   "env": {
     "browser": true,
     "jest": true
@@ -15,29 +19,9 @@
   },
   "rules": {
     "prettier/prettier": ["error"],
-    "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }]
-  },
-  "overrides": [
-    {
-      "files": ["*.ts", "*.tsx"],
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "project": ["./tsconfig.json"],
-        "sourceType": "module"
-      },
-      "plugins": ["@typescript-eslint", "prettier"],
-      "extends": [
-        "plugin:@typescript-eslint/recommended", 
-        "airbnb", 
-        "airbnb-typescript", 
-        "airbnb/hooks", 
-        "prettier"
-      ],
-      "rules": {
-        "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": ["error"],
-        "react/require-default-props": "off"
-      }
-    }
-  ]
+    "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "react/require-default-props": "off"
+  }
 }
