@@ -1,5 +1,5 @@
 /* eslint-disable react/button-has-type */
-import React, { FC, SyntheticEvent } from 'react';
+import React, { FC, MouseEventHandler } from 'react';
 import classNames from 'classnames';
 import styles from './Button.module.css';
 
@@ -7,7 +7,7 @@ export type ButtonProps = {
   className?: string;
   variant?: 'primary' | 'outline' | 'link';
   type?: 'button' | 'submit';
-  onClick?: (event: SyntheticEvent<HTMLButtonElement>) => void;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   'data-testid'?: string;
 };
 
