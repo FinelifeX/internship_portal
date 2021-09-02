@@ -14,7 +14,7 @@ const makePath = (dir) => path.resolve(__dirname, dir);
 
 /** @type {import("webpack").Configuration} */
 module.exports = {
-  entry: makePath('./index.js'),
+  entry: makePath('./index.tsx'),
   mode: isDevelopment ? 'development' : 'production',
   module: {
     rules: [
@@ -60,6 +60,15 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader',
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -69,7 +78,7 @@ module.exports = {
     }),
     isDevelopment && new ReactRefreshWebpackPlugin(),
     new EslintWebpackPlugin({
-      extensions: ['js', 'jsx'],
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
       failOnError: false,
     }),
   ].filter(Boolean),
@@ -79,9 +88,11 @@ module.exports = {
     hot: true,
     port: 3000,
     historyApiFallback: true,
+    open: true,
   },
+  devtool: 'inline-source-map',
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
     modules: [makePath('modules'), 'node_modules'],
     alias: {
       'test-utils': makePath('modules/test-utils/'),

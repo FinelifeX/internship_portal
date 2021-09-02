@@ -1,7 +1,7 @@
 import React from 'react';
 import PT from 'prop-types';
 import classNames from 'classnames';
-import { displayOptions } from '../contants';
+import { displayOptions } from '../constants';
 import styles from './Pagination.module.css';
 
 const Pagination = ({

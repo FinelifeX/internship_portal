@@ -4,7 +4,7 @@ import TableHead from './components/TableHead';
 import TableBody from './components/TableBody';
 import Pagination from './components/Pagination';
 import { columnItem } from './propTypes';
-import { displayOptions } from './contants';
+import { displayOptions } from './constants';
 import styles from './Table.module.css';
 
 const Table = ({ columns, dataSource, hasPagination }) => {
